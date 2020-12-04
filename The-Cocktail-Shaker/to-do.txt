@@ -1,0 +1,11 @@
+Setup
+
+create html, css and js
+create boilerplate
+link app.js
+link style.css
+link jQuery
+link bootstrap
+
+Commit
+
