@@ -14,6 +14,7 @@ Main Items
 Commit
 
 Add features
+- return the recipe
 - pop up welcome?
 - cocktail shaker image
 Commit
@@ -25,7 +26,6 @@ Commit
 
 
 Extras
-
-animations?
+- animations?
     - backgound images move
     - cocktail shaker shakes for period of time

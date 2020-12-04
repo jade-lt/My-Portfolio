@@ -1,3 +1,9 @@
 body {
-    text-align: center;
+  text-align: center;
+}
+
+#drink-img {
+  border-radius: 20%;
+  max-width: 40%;
+  height: auto;
 }
