@@ -13,18 +13,37 @@
 </head>
 
 <body>
-    <div>
-        <h1>The Cocktail Shaker</h1>
-        <button type="button" id="generate-drink" class="btn btn-info btn-lg">Tell me what to drink!</button>
+    <div id="container">
+        <!--<div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="https://holypython.com/wp-content/uploads/2019/11/tvtrrt1439906288.jpg" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="https://holypython.com/wp-content/uploads/2019/11/tsxpty1468923417.jpg" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="https://holypython.com/wp-content/uploads/2019/11/jofsaz1504352991.jpg" alt="Third slide">
+              </div>
+            </div>
+          </div>-->
+        <div>
+            <div id="title-heading">
+                <h1>The Cocktail Shaker</h1>
+                <button type="button" class="generate-drink btn btn-info">Give me a drink idea!</button>
+            </div>
+            
+            <h2 id="drink-name"></h2>
+            <img src="" id="drink-img"></img>
+            <div id="new-buttons">
+              <div id="no-thanks-button"></div>
+              <div id="generate-recipe-button"></div>
+            </div>
+        </div>
+        <div>
+        </div>
+
     </div>
-    <div>
-        <h2 id="drink-name"></h2>
-        <img src="" id="drink-img"></img>
-    </div>
-    <div>
-        <button type="button" id="generate-drink" class="btn btn-info btn-lg">No thanks, try again!</button>
-        <button type="button" id="generate-recipe" class="btn btn-info btn-lg">Yum, what's the recipe?</button>
-</div>
     <script src="./app.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
