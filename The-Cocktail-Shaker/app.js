@@ -1,10 +1,16 @@
 console.log("app is running");
 
-// const cocktailDbApi =
+$(document).ready(function () {
+  // this hides 2 buttons that should only be visible after the first cocktail idea has been generated
+  $("#no-thanks-button").hide();
+  $("#generate-recipe-button").hide();
+});
+
+function generateADrink(buttonInput) {
   // This should return a random cocktail recipe from the The Cocktail DB api and display the name and an image of the cocktail returned:
-  $(".generate-drink").on("click", () => {
+  $(buttonInput).on("click", () => {
     console.log("make my drink button was clicked");
-    const generateDrink = $.get(
+    const newDrinkIdea = $.get(
       `https://www.thecocktaildb.com/api/json/v1/1/random.php`,
       (data) => {
         console.log(data.drinks[0].strDrink);
@@ -29,25 +35,15 @@ console.log("app is running");
 
         const drinkImg = data.drinks[0].strDrinkThumb;
         $("#drink-img").attr("src", drinkImg);
-        const noThanksButton = `<p type="button" class="test btn btn-info">No thanks, any other ideas?</button>`;
-        const recipeButton = `<button type="button" id="generate-recipe" class="btn btn-info">Yum! What's the recipe?</button>`;
-    
-        $("#no-thanks-button").append(noThanksButton);
-      $("#generate-recipe-button").append(recipeButton);
+        $("#no-thanks-button").show();
+        $("#generate-recipe-button").show();
+        $("#give-me-an-idea-button").hide();
       }
-
     );
-    
-    // console.log(noThanksButton);
-    // console.log(recipeButton);
   });
+}
 
-  $(".generate-drink").on("click" , "button.test" , () => { 
-    console.log("Test button!")
-  })
-
-    
- 
+generateADrink(".generate-drink");
 
 // $("#generate-recipe").on("click", () => {
 //   console.log("recipe button was clicked");
