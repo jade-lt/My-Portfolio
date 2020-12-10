@@ -1,0 +1,18 @@
+body {
+  text-align: center;
+}
+
+#drink-img {
+  border-radius: 20%;
+  max-width: 40%;
+  height: auto;
+  padding: 10px;
+}
+#header-carousel {
+  max-width: 100%;
+  height: auto;
+  opacity: 0.5;
+}
+
+#title-heading {
+}
