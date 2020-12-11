@@ -19,6 +19,16 @@ Add features
 - cocktail shaker image
 Commit
 
+issues to fix
+- there is a lag with drink name and image return, but buttons show up immediately, need to add a wait function
+
+Read me
+- add general info
+- issues and how they were solved
+    - couldn't get the js generated buttons to work, so created them in html and then used hide and show
+    - the generate recipe button would actually generate an entirely new cocktail idea and then give the recipe for that
+    - tried to add a bootstrap carousel, but then the images i input were huge so had to workshop image sizes
+
 Add style
 - colour scheme
 - background images/cartoons
