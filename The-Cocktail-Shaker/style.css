@@ -4,7 +4,7 @@ body {
 
 #drink-img {
   border-radius: 20%;
-  max-width: 40%;
+  max-width: 75%;
   height: auto;
   padding: 10px;
 }
@@ -14,23 +14,28 @@ body {
   opacity: 0.5;
 }
 
-
-
 ul {
   list-style-type: none;
 }
 
-#amounts {
-  text-align: left;
-  
-  background-color: rgb(177, 145, 177);
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
 }
+
+#amounts {
+  text-align: right;
+  /* background-color: rgb(177, 145, 177); */
+}
+
 #ingredients {
   text-align: left;
-  background-color: pink;
+  /* background-color: pink; */
+  padding: -10;
 }
 
 #instructions {
-  
-  background-color: rgb(180, 201, 180);
+  /* background-color: rgb(180, 201, 180); */
 }
+

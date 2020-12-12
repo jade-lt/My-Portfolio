@@ -28,6 +28,8 @@
             </div>
           </div>-->
 
+<!--*******-->
+
     <div id="title-heading">
       <h1>The Cocktail Shaker</h1>
 
@@ -35,54 +37,55 @@
         idea!</button>
     </div>
 
-
-
-
+<!--*******-->
 
     <div>
       <h2 id="drink-name"></h2>
       <img src="" id="drink-img"></img>
     </div>
 
+<!--*******-->    
+
+      <div id="drink-recipe">
+
+        <h3>Recipe</h3>
+        <h4>Ingredients</h4>
 
 
 
+        <div class="grid-container">
+          <div id="amounts">
+            <ul id="ingredient-amounts"></ul>
+          </div>
+          <div id="ingredients">
+            <ul id="drink-ingredients"></ul>
+          </div>
+        </div>
+
+
+          <div id="instructions">
+            <h4>Method</h4>
+            <p id="drink-instructions"></p>
+          </div>
+
+        </div>
+
+        
+
+
+<!--*******-->
 
     <div id="hidden-buttons">
       <button type="button" id="no-thanks-button" class="generate-drink btn btn-info">No thanks, any other
         ideas?</button>
       <button type="button" id="generate-recipe-button" class="btn btn-info">Yum! What's the recipe?</button>
+      <button type="button" id="start-again-button" class="btn btn-info">Start Over</button>
     </div>
+ 
 
+<!--*******-->
 
-
-    <div class="container-fluid">
-
-      <div id="drink-recipe">
-        <h3>Recipe</h3>
-        <h4>Ingredients</h4>
-        <div class="row">
-
-          <div id="amounts" class="col-xs-6" class="col-lg-6">
-            <ul id="ingredient-amounts"></ul>
-          </div>
-          <div id="ingredients" class="col-xs-6" class="col-lg-6">
-            <ul id="drink-ingredients"></ul>
-          </div>
-        </div>
-        <div class="row">
-          <div id="instructions" class="col-xs-12" class="col-lg-12">
-            <h4>Method</h4>
-            <p id="drink-instructions"></p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-
+</div>
 
   <script src="./app.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
