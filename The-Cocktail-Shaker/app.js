@@ -35,14 +35,24 @@ function newDrinkIdea(buttonInput) {
       $("#generate-recipe-button").show();
       $("#give-me-an-idea-button").hide();
 
+      const drinkObjectArray = Object.values(drinkData);
+      console.log("test the drink object array", drinkObjectArray);
 
-     const drinkObjectArray = Object.values(drinkData);
+      const drinkIngredientsArray = drinkObjectArray.slice(21, 36);
+      console.log(drinkName, "ingredients only", drinkIngredientsArray);
 
-     console.log("test the drink object array", drinkObjectArray);
+      const ingredientAmountArray = drinkObjectArray.slice(36, 51);
+      console.log(ingredientAmountArray);
 
-     const drinkIngredientsArray = drinkObjectArray.slice(21, 36);
-     console.log(drinkName, "ingredients only", drinkIngredientsArray);
-
+      function omitNullElements(arr) {
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] !== null) {
+            console.log(arr[i]);
+          }
+        }
+      }
+omitNullElements(drinkIngredientsArray);
+omitNullElements(ingredientAmountArray);
       const drinkInstructions = drinkData.strInstructions;
 
       $("#generate-recipe-button").on("click", () => {
