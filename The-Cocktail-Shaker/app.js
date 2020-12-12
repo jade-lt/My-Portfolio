@@ -51,8 +51,9 @@ function newDrinkIdea(buttonInput) {
           }
         }
       }
-omitNullElements(drinkIngredientsArray);
-omitNullElements(ingredientAmountArray);
+
+      omitNullElements(drinkIngredientsArray);
+      omitNullElements(ingredientAmountArray);
       const drinkInstructions = drinkData.strInstructions;
 
       $("#generate-recipe-button").on("click", () => {
@@ -73,14 +74,3 @@ omitNullElements(ingredientAmountArray);
 }
 
 newDrinkIdea(".generate-drink");
-
-// maybe generate all necessary info at once, but then have it remain hidden unless the recipe button is clicked??
-
-// function getIngredients(arr) {
-//   const ingredientArr = [];
-//   for (let i = 0; i < arr.length; i++) {
-//     ingredientArr.push(arr[i])
-//   }
-//   console.log(ingredientArr);
-// }
-// getIngredients(data);
