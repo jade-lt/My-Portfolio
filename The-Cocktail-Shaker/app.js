@@ -2,6 +2,7 @@ $(document).ready(function () {
   // this hides 2 buttons that should only be visible after the first cocktail idea has been generated
   $("#no-thanks-button").hide();
   $("#generate-recipe-button").hide();
+  $("#drink-recipe").hide();
 });
 
 function newDrinkIdea(buttonInput) {
@@ -10,6 +11,7 @@ function newDrinkIdea(buttonInput) {
     $.get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`, (data) => {
       const drinkData = data.drinks[0];
       const drinkName = drinkData.strDrink;
+
       if (
         // this if else isolates cocktail names that start with a vowel or with "the" and returns a gramatically correct sentence
         drinkName[0] === "A" ||
@@ -31,46 +33,44 @@ function newDrinkIdea(buttonInput) {
 
       const drinkImg = drinkData.strDrinkThumb;
       $("#drink-img").attr("src", drinkImg);
+
       $("#no-thanks-button").show();
       $("#generate-recipe-button").show();
       $("#give-me-an-idea-button").hide();
 
       const drinkObjectArray = Object.values(drinkData);
-      console.log("test the drink object array", drinkObjectArray);
-
-      const drinkIngredientsArray = drinkObjectArray.slice(21, 36);
-      console.log(drinkName, "ingredients only", drinkIngredientsArray);
-
       const ingredientAmountArray = drinkObjectArray.slice(36, 51);
-      console.log(ingredientAmountArray);
+      const drinkIngredientsArray = drinkObjectArray.slice(21, 36);
+      const drinkInstructions = drinkData.strInstructions;
 
-      function omitNullElements(arr) {
+      function returnElements(arr, location) {
         for (let i = 0; i < arr.length; i++) {
-          if (arr[i] !== null) {
-            console.log(arr[i]);
+          const newItem = arr[i];
+          if (newItem !== null) {
+            $(location).append(`<li>${newItem}</li>`);
           }
         }
       }
 
-      omitNullElements(drinkIngredientsArray);
-      omitNullElements(ingredientAmountArray);
-      const drinkInstructions = drinkData.strInstructions;
-
       $("#generate-recipe-button").on("click", () => {
-        console.log("recipe button was clicked");
-        console.log(drinkName);
-        // $("#drink-recipe").show();
-        console.log(drinkInstructions);
+        $("#ingredient-amounts").empty();
+        $("#drink-ingredients").empty();
+        console.log(drinkName, ingredientAmountArray, drinkIngredientsArray);
+        $("#drink-recipe").show();
+        // $("#ingredient-amounts").html(ingredientAmountArray);
+        // $("#drink-ingredients").html(drinkIngredientsArray);
+        returnElements(ingredientAmountArray, "#ingredient-amounts");
+        returnElements(drinkIngredientsArray, "#drink-ingredients");
         $("#drink-instructions").html(drinkInstructions);
-        $("#drink-instructions").show();
       });
 
       $("#no-thanks-button").on("click", () => {
-        console.log("no-thanks-button-was-clicked");
-        $("#drink-instructions").hide();
+        $("#drink-recipe").hide();
       });
     });
   });
 }
 
 newDrinkIdea(".generate-drink");
+
+
