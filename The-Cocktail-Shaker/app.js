@@ -8,7 +8,8 @@ function newDrinkIdea(buttonInput) {
   // This should return a random cocktail recipe from the The Cocktail DB api and display the name and an image of the cocktail returned
   $(buttonInput).on("click", () => {
     $.get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`, (data) => {
-      const drinkName = data.drinks[0].strDrink;
+      const drinkData = data.drinks[0];
+      const drinkName = drinkData.strDrink;
       if (
         // this if else isolates cocktail names that start with a vowel or with "the" and returns a gramatically correct sentence
         drinkName[0] === "A" ||
@@ -28,15 +29,31 @@ function newDrinkIdea(buttonInput) {
         $("#drink-name").html(`How about a ${drinkName}?`);
       }
 
-      const drinkImg = data.drinks[0].strDrinkThumb;
+      const drinkImg = drinkData.strDrinkThumb;
       $("#drink-img").attr("src", drinkImg);
       $("#no-thanks-button").show();
       $("#generate-recipe-button").show();
       $("#give-me-an-idea-button").hide();
 
-      // const drinkIngredients = data.drinks[0].strInstructions;
+      const drinkObjectArray = Object.values(drinkData);
+      console.log("test the drink object array", drinkObjectArray);
 
-      const drinkInstructions = data.drinks[0].strInstructions;
+      const drinkIngredientsArray = drinkObjectArray.slice(21, 36);
+      console.log(drinkName, "ingredients only", drinkIngredientsArray);
+
+      const ingredientAmountArray = drinkObjectArray.slice(36, 51);
+      console.log(ingredientAmountArray);
+
+      function omitNullElements(arr) {
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] !== null) {
+            console.log(arr[i]);
+          }
+        }
+      }
+omitNullElements(drinkIngredientsArray);
+omitNullElements(ingredientAmountArray);
+      const drinkInstructions = drinkData.strInstructions;
 
       $("#generate-recipe-button").on("click", () => {
         console.log("recipe button was clicked");
@@ -58,3 +75,12 @@ function newDrinkIdea(buttonInput) {
 newDrinkIdea(".generate-drink");
 
 // maybe generate all necessary info at once, but then have it remain hidden unless the recipe button is clicked??
+
+// function getIngredients(arr) {
+//   const ingredientArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     ingredientArr.push(arr[i])
+//   }
+//   console.log(ingredientArr);
+// }
+// getIngredients(data);
