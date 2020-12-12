@@ -27,6 +27,7 @@ Read me
 - issues and how they were solved
     - couldn't get the js generated buttons to work, so created them in html and then used hide and show
     - the generate recipe button would actually generate an entirely new cocktail idea and then give the recipe for that
+    - when generating recipe info from the api, some drinks returned ingredient values as null, so I created a for loop that excluded those and returned only ingredients that had a value, and then added those values into a new ul
     - tried to add a bootstrap carousel, but then the images i input were huge so had to workshop image sizes
 
 Add style

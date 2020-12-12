@@ -14,5 +14,23 @@ body {
   opacity: 0.5;
 }
 
-#title-heading {
+
+
+ul {
+  list-style-type: none;
+}
+
+#amounts {
+  text-align: left;
+  
+  background-color: rgb(177, 145, 177);
+}
+#ingredients {
+  text-align: left;
+  background-color: pink;
+}
+
+#instructions {
+  
+  background-color: rgb(180, 201, 180);
 }

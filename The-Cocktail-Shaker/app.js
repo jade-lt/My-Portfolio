@@ -2,6 +2,7 @@ $(document).ready(function () {
   // this hides 2 buttons that should only be visible after the first cocktail idea has been generated
   $("#no-thanks-button").hide();
   $("#generate-recipe-button").hide();
+  $("#drink-recipe").hide();
 });
 
 function newDrinkIdea(buttonInput) {
@@ -42,20 +43,24 @@ function newDrinkIdea(buttonInput) {
       const drinkIngredientsArray = drinkObjectArray.slice(21, 36);
       const drinkInstructions = drinkData.strInstructions;
 
-      function omitNullElements(arr) {
+      function returnElements(arr, location) {
         for (let i = 0; i < arr.length; i++) {
-          if (arr[i] !== null) {
+          const newItem = arr[i];
+          if (newItem !== null) {
+            $(location).append(`<li>${newItem}</li>`);
           }
         }
       }
 
-      omitNullElements(drinkIngredientsArray);
-      omitNullElements(ingredientAmountArray);
-
       $("#generate-recipe-button").on("click", () => {
+        $("#ingredient-amounts").empty();
+        $("#drink-ingredients").empty();
+        console.log(drinkName, ingredientAmountArray, drinkIngredientsArray);
         $("#drink-recipe").show();
-        $("#ingredient-amounts").html(ingredientAmountArray);
-        $("#drink-ingredients").html(drinkIngredientsArray);
+        // $("#ingredient-amounts").html(ingredientAmountArray);
+        // $("#drink-ingredients").html(drinkIngredientsArray);
+        returnElements(ingredientAmountArray, "#ingredient-amounts");
+        returnElements(drinkIngredientsArray, "#drink-ingredients");
         $("#drink-instructions").html(drinkInstructions);
       });
 
@@ -67,3 +72,5 @@ function newDrinkIdea(buttonInput) {
 }
 
 newDrinkIdea(".generate-drink");
+
+
