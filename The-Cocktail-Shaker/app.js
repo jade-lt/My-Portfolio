@@ -45,6 +45,7 @@ function newDrinkIdea(buttonInput) {
       }
 
       $("#generate-recipe-button").on("click", () => {
+        $("#drink-img").css({'max-width': '40%'});
         $("#ingredient-amounts").empty();
         $("#drink-ingredients").empty();
         console.log(drinkName, ingredientAmountArray, ingredientsArray);
