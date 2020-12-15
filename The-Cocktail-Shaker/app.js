@@ -1,5 +1,6 @@
 // this hides buttons that should only be visible after the first cocktail idea has been generated
 $(document).ready(function () {
+  $("#shaker-image").hide();
   $("#no-thanks-button").hide();
   $("#generate-recipe-button").hide();
   $("#start-again-button").hide();
@@ -9,7 +10,7 @@ $(document).ready(function () {
 // this should return a random cocktail recipe from the The Cocktail DB api and display the name and an image of the cocktail returned
 function newDrinkIdea(buttonInput) {
   $(buttonInput).on("click", () => {
-    // $("body").css({'background-color': 'rgb(216, 238, 235'});
+    $("#shaker-image").show();
     $("#header").hide();
     $.get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`, (data) => {
       const drinkData = data.drinks[0];
@@ -46,7 +47,10 @@ function newDrinkIdea(buttonInput) {
         }
       }
 
+      $("#shaker-image").hide();
+
       $("#generate-recipe-button").on("click", () => {
+        
         $("#drink-img").css({ "max-width": "30%" });
         $("#drink-name").html(`${drinkName}`);
         $("#ingredient-amounts").empty();
