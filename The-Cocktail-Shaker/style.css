@@ -2,16 +2,22 @@ body {
   text-align: center;
 }
 
+#give-me-an-idea-button {
+  margin: 10px;
+}
+
+.carousel-item {
+  width: 100%;
+  max-height: 260px;
+  opacity: 0.75;
+  z-index: -1;
+}
+
 #drink-img {
   border-radius: 20%;
   max-width: 75%;
   height: auto;
   padding: 10px;
-}
-#header-carousel {
-  max-width: 100%;
-  height: auto;
-  opacity: 0.5;
 }
 
 ul {
@@ -26,16 +32,23 @@ ul {
 
 #amounts {
   text-align: right;
-  /* background-color: rgb(177, 145, 177); */
+  background-color: rgb(177, 145, 177);
 }
 
 #ingredients {
   text-align: left;
-  /* background-color: pink; */
-  padding: -10;
+  background-color: pink;
+  /* padding: -10; */
 }
 
 #instructions {
-  /* background-color: rgb(180, 201, 180); */
+  background-color: rgb(180, 201, 180);
 }
 
+h1, h2 {
+  margin: 20px;
+}
+
+h3, h4 {
+  margin: 10px;
+}
