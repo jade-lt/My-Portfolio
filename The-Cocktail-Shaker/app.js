@@ -10,6 +10,8 @@ $(document).ready(function () {
 // this should return a random cocktail recipe from the The Cocktail DB api and display the name and an image of the cocktail returned
 function newDrinkIdea(buttonInput) {
   $(buttonInput).on("click", () => {
+    $("#give-me-an-idea-button").hide();
+    $("#cocktail-image").hide();
     $("#shaker-image").show();
     $("#header").hide();
     $.get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`, (data) => {
@@ -31,7 +33,7 @@ function newDrinkIdea(buttonInput) {
 
       $("#no-thanks-button").show();
       $("#generate-recipe-button").show();
-      $("#give-me-an-idea-button").hide();
+      
 
       const drinkObjectArray = Object.values(drinkData);
       const ingredientAmountArray = drinkObjectArray.slice(36, 51);
