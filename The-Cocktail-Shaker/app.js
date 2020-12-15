@@ -9,13 +9,14 @@ $(document).ready(function () {
 // this should return a random cocktail recipe from the The Cocktail DB api and display the name and an image of the cocktail returned
 function newDrinkIdea(buttonInput) {
   $(buttonInput).on("click", () => {
+    // $("body").css({'background-color': 'rgb(216, 238, 235'});
     $("#header").hide();
     $.get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`, (data) => {
       const drinkData = data.drinks[0];
       const drinkName = drinkData.strDrink;
       const x = drinkName[0];
 
-// this if else isolates cocktail names that start with a vowel or with "the" and returns a gramatically correct sentence
+      // this if else isolates cocktail names that start with a vowel or with "the" and returns a gramatically correct sentence
       if (x === "A" || x === "E" || x === "I" || x === "O" || x === "U") {
         $("#drink-name").html(`How about an ${drinkName}?`);
       } else if (x === "T" && x === "h" && x === "e") {
@@ -46,7 +47,7 @@ function newDrinkIdea(buttonInput) {
       }
 
       $("#generate-recipe-button").on("click", () => {
-        $("#drink-img").css({'max-width': '40%'});
+        $("#drink-img").css({ "max-width": "30%" });
         $("#drink-name").html(`${drinkName}`);
         $("#ingredient-amounts").empty();
         $("#drink-ingredients").empty();
@@ -67,7 +68,6 @@ function newDrinkIdea(buttonInput) {
       $("#start-again-button").on("click", () => {
         window.location.reload();
       });
-
     });
   });
 }
