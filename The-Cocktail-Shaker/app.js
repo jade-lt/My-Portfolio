@@ -13,6 +13,9 @@ function newDrinkIdea(buttonInput) {
     $("#give-me-an-idea-button").hide();
     $("#cocktail-image").hide();
     $("#shaker-image").show();
+    setTimeout(function () {
+      $("#shaker-image").hide();
+    }, 8000);
     $("#header").hide();
     $.get(`https://www.thecocktaildb.com/api/json/v1/1/random.php`, (data) => {
       const drinkData = data.drinks[0];
@@ -33,7 +36,6 @@ function newDrinkIdea(buttonInput) {
 
       $("#no-thanks-button").show();
       $("#generate-recipe-button").show();
-      
 
       const drinkObjectArray = Object.values(drinkData);
       const ingredientAmountArray = drinkObjectArray.slice(36, 51);
@@ -52,7 +54,6 @@ function newDrinkIdea(buttonInput) {
       $("#shaker-image").hide();
 
       $("#generate-recipe-button").on("click", () => {
-        
         $("#drink-img").css({ "max-width": "30%" });
         $("#drink-name").html(`${drinkName}`);
         $("#ingredient-amounts").empty();
