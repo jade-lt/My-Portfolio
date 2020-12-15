@@ -12,7 +12,8 @@ button {
   left: 290px;
 }
 
-#shaker-image, #cocktail-image {
+#shaker-image,
+#cocktail-image {
   width: 500px;
   height: auto;
 }
@@ -84,12 +85,14 @@ h4 {
     max-height: 100%;
   }
 
-  #shaker-image, #cocktail-image {
+  #shaker-image,
+  #cocktail-image {
     width: 300px;
     height: auto;
   }
 
-  #title-heading, #give-me-an-idea-button {
+  #title-heading,
+  #give-me-an-idea-button {
     position: relative;
     top: auto;
     left: auto;
